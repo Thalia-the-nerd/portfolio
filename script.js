@@ -19,15 +19,50 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: true
     });
 
+    // 2.5 Floating Data Nodes
+    const bgNodes = document.getElementById('bgNodes');
+    const nodeChars = ['+', '< />', '{ }', '[ ]', '01', '10', 'sys', '•'];
+    const numNodes = 40;
+
+    for (let i = 0; i < numNodes; i++) {
+        let el = document.createElement('div');
+        el.classList.add('node-element');
+        el.innerText = nodeChars[Math.floor(Math.random() * nodeChars.length)];
+        el.style.left = Math.random() * 100 + 'vw';
+        el.style.top = Math.random() * 100 + 'vh';
+        el.style.fontSize = (Math.random() * 1.5 + 0.5) + 'rem';
+        bgNodes.appendChild(el);
+    }
+
+    anime({
+        targets: '.node-element',
+        translateX: function() { return anime.random(-100, 100) + 'vw'; },
+        translateY: function() { return anime.random(-100, 100) + 'vh'; },
+        rotate: function() { return anime.random(-360, 360); },
+        scale: function() { return anime.random(0.5, 2); },
+        opacity: [0, 0.4, 0],
+        duration: function() { return anime.random(10000, 20000); },
+        delay: function() { return anime.random(0, 5000); },
+        loop: true,
+        direction: 'alternate',
+        easing: 'easeInOutSine'
+    });
+
     // 3. Initial Load Sequence (Staggered and dramatic)
     const tl = anime.timeline({ easing: 'easeOutExpo' });
     
+    // Split hero title into letters for individual animation
+    const heroTitle = document.querySelector('.hero-title');
+    heroTitle.innerHTML = heroTitle.textContent.replace(/\S/g, "<span class='letter' style='display:inline-block'>$&</span>");
+
     tl.add({
-        targets: '.hero-title',
+        targets: '.hero-title .letter',
         translateY: [100, 0],
+        translateZ: 0,
+        rotateY: [-90, 0],
         opacity: [0, 1],
-        duration: 1500,
-        delay: 200
+        duration: 1200,
+        delay: anime.stagger(50)
     })
     .add({
         targets: '.role-tag',

@@ -57,6 +57,22 @@ body {
     pointer-events: none;
 }
 
+.bg-nodes {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.node-element {
+    position: absolute;
+    font-family: var(--font-mono);
+    color: var(--accent-color);
+    opacity: 0.3;
+    user-select: none;
+}
+
 .cursor-glow {
     position: fixed;
     width: 600px; height: 600px;
