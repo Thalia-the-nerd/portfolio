@@ -186,6 +186,17 @@ body {
     animation: rotate 15s linear infinite reverse;
 }
 
+.anime-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    z-index: 2;
+    overflow: visible;
+}
+
 @keyframes rotate {
     100% { transform: rotate(360deg); }
 }
