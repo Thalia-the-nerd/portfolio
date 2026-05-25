@@ -61,17 +61,6 @@
         </section>
 
 
-        <!-- Github Activity Graph -->
-        <section class="activity-section">
-            <div class="section-container">
-                <div class="activity-header">
-                    <h2 class="activity-title">System Activity</h2>
-                    <span class="activity-status">1,024 commits this year</span>
-                </div>
-                <div class="git-grid" id="gitGrid"></div>
-            </div>
-        </section>
-
         <!-- About Section -->
         <section id="about" class="about-section">
             <div class="section-container">
@@ -242,45 +231,12 @@
             </div>
         </section>
 
-        <!-- Hardware Blueprint Section -->
-        <section id="hardware" class="hardware-section">
+        <!-- Blog Section -->
+        <section id="blog" class="blog-section">
             <div class="section-container">
-                <h2 class="section-title">05. Hardware Schematics</h2>
-                <div class="blueprint-container glass-panel">
-                    <svg class="blueprint-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-                        <path class="blueprint-path" d="M100,200 L300,200 L350,100 L450,100 L500,200 L700,200" fill="none" stroke="var(--accent-color)" stroke-width="2" />
-                        <path class="blueprint-path" d="M300,200 L300,300 L500,300 L500,200" fill="none" stroke="var(--accent-color)" stroke-width="2" />
-                        <circle class="blueprint-node" cx="350" cy="100" r="6" fill="var(--accent-secondary)" />
-                        <circle class="blueprint-node" cx="450" cy="100" r="6" fill="var(--accent-secondary)" />
-                        <circle class="blueprint-node" cx="300" cy="300" r="6" fill="var(--accent-secondary)" />
-                        <circle class="blueprint-node" cx="500" cy="300" r="6" fill="var(--accent-secondary)" />
-                        
-                        <text class="blueprint-text" x="400" y="80" text-anchor="middle">FLIGHT CONTROLLER ARRAY</text>
-                        <text class="blueprint-text" x="400" y="330" text-anchor="middle">THRUST VECTOR MOUNT</text>
-                        <text class="blueprint-text" x="200" y="190" text-anchor="middle">TELEMETRY RIG</text>
-                        <text class="blueprint-text" x="600" y="190" text-anchor="middle">PAYLOAD DEPLOYMENT</text>
-                    </svg>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Logs Section -->
-        <section id="logs" class="logs-section">
-            <div class="section-container">
-                <h2 class="section-title">06. Technical Logs</h2>
-                <div class="log-list glass-panel">
-                    <a href="#" class="log-item magnetic-card">
-                        <div class="log-meta"><span class="log-date">May 15, 2026</span> <span class="log-tag">Homelab</span></div>
-                        <h3 class="log-title">Architecting a 95+ Container Docker Swarm on Arch</h3>
-                    </a>
-                    <a href="#" class="log-item magnetic-card">
-                        <div class="log-meta"><span class="log-date">April 02, 2026</span> <span class="log-tag">Aerospace</span></div>
-                        <h3 class="log-title">PID Tuning for TVC Model Rockets</h3>
-                    </a>
-                    <a href="#" class="log-item magnetic-card">
-                        <div class="log-meta"><span class="log-date">February 18, 2026</span> <span class="log-tag">Robotics</span></div>
-                        <h3 class="log-title">Turret Tracking Algorithms in C++</h3>
-                    </a>
+                <h2 class="section-title">05. Blog</h2>
+                <div class="blog-list glass-panel" id="blogList">
+                    <div class="term-line" style="padding: 2rem;">Fetching signals from https://blog.thaliathenerd.dev...</div>
                 </div>
             </div>
         </section>
