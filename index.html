@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thalia Webb | Software & Hardware Engineer</title>
+    <meta name="description" content="Portfolio of Thalia Webb, Software Developer, Robotics Lead, and Hardware Engineer based in Miami Beach.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Animation Canvas -->
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <main class="content-wrapper">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Thalia Webb</h1>
+                <p class="hero-subtitle">Software Developer | Robotics Lead | Hardware Engineer</p>
+                <div class="magnetic-btn-wrapper">
+                    <a href="#projects" class="primary-btn magnetic-btn">
+                        <span class="btn-text">View Projects</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="section-container">
+                <h2 class="section-title">About</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p class="location-tag"><span class="icon">📍</span> Miami Beach, FL</p>
+                        <p class="bio">
+                            Focused on the intersection of low-level programming, autonomous hardware, and systems architecture. 
+                            Experienced in robotics, aerospace engineering projects, and maintaining complex server infrastructure. 
+                            Building projects with a focus on precision and performance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="section-container">
+                <h2 class="section-title">Skills Matrix</h2>
+                <div class="skills-category">
+                    <h3 class="category-title">Software & Systems</h3>
+                    <div class="skills-tags" id="softwareTags">
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Linux (Arch)</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Google Cloud Platform</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3 class="category-title">Hardware & Engineering</h3>
+                    <div class="skills-tags" id="hardwareTags">
+                        <span class="skill-tag">3D Printing & CAD</span>
+                        <span class="skill-tag">Circuit/Hardware Wiring</span>
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">Raspberry Pi</span>
+                        <span class="skill-tag">TVC Systems</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card magnetic-card">
+                        <h3 class="project-title">FIRST Robotics</h3>
+                        <p class="project-role">Lead Programmer</p>
+                        <p class="project-desc">Developed and optimized robot code in C++ and Java. Managed complex hardware wiring for turrets and integrated advanced control systems.</p>
+                    </div>
+                    <div class="project-card magnetic-card">
+                        <h3 class="project-title">Aerospace & Flight Systems</h3>
+                        <p class="project-desc">Designed and engineered large-scale model aircraft. Developed custom flight controllers and currently architecting a Thrust Vector Control (TVC) model rocket with smart landing logic.</p>
+                    </div>
+                    <div class="project-card magnetic-card">
+                        <h3 class="project-title">Advanced Infrastructure</h3>
+                        <p class="project-role">Homelab Architecture</p>
+                        <p class="project-desc">Architected and maintained a home server environment running 95+ Docker containers, handling internal network routing, reverse proxies, and continuous service deployment.</p>
+                    </div>
+                    <div class="project-card magnetic-card">
+                        <h3 class="project-title">Technical Leadership</h3>
+                        <p class="project-role">President, Girls Coding Club</p>
+                        <p class="project-desc">Drafted administrative governance, managed club operations, and developed/taught a comprehensive Python curriculum.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Contact -->
+        <footer id="contact" class="footer-section">
+            <div class="section-container">
+                <div class="footer-content">
+                    <h2 class="section-title">Let's Connect</h2>
+                    <div class="social-links">
+                        <a href="mailto:thaliathenerder@gmail.com" class="social-icon">Email</a>
+                        <a href="https://github.com" target="_blank" class="social-icon">GitHub</a>
+                    </div>
+                    <p class="copyright">&copy; 2026 Thalia Webb. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Anime.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
