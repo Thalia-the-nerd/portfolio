@@ -477,50 +477,6 @@ body {
     .hero-abstract-shape { display: none; }
 }
 
-/* --- Terminal Section --- */
-.terminal-window {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: 12px;
-    overflow: hidden;
-    font-family: var(--font-mono);
-}
-.terminal-header {
-    background: rgba(0,0,0,0.5);
-    padding: 0.75rem 1rem;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid var(--glass-border);
-}
-.term-btns {
-    display: flex; gap: 8px;
-}
-.term-btn {
-    width: 12px; height: 12px; border-radius: 50%;
-}
-.term-btn.close { background: #ff5f56; }
-.term-btn.min { background: #ffbd2e; }
-.term-btn.max { background: #27c93f; }
-.term-title {
-    flex-grow: 1; text-align: center; font-size: 0.85rem; color: var(--text-muted);
-}
-.terminal-body {
-    padding: 1.5rem; height: 300px; overflow-y: auto; color: var(--text-color);
-}
-.term-line {
-    margin-bottom: 0.5rem;
-}
-.term-input-line {
-    display: flex; align-items: center; gap: 0.5rem;
-}
-.prompt {
-    color: var(--accent-color);
-}
-.term-input {
-    background: transparent; border: none; color: #fff; font-family: var(--font-mono); flex-grow: 1; outline: none; font-size: 1rem;
-}
-
 /* --- Timeline Section --- */
 .timeline-wrapper {
     position: relative; padding-left: 3rem; max-width: 800px; margin: 0 auto;
