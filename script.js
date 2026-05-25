@@ -291,4 +291,83 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // 10. Github Activity Grid Generation & Animation
+    const gitGrid = document.getElementById('gitGrid');
+    if (gitGrid) {
+        const numSquares = 365; // ~1 year of squares
+        for (let i = 0; i < numSquares; i++) {
+            let sq = document.createElement('div');
+            sq.className = 'git-square';
+            // Randomly assign activity levels
+            const rand = Math.random();
+            if (rand > 0.95) sq.classList.add('level-4');
+            else if (rand > 0.8) sq.classList.add('level-3');
+            else if (rand > 0.6) sq.classList.add('level-2');
+            else if (rand > 0.3) sq.classList.add('level-1');
+            
+            gitGrid.appendChild(sq);
+        }
+
+        // Stagger pulse animation
+        anime({
+            targets: '.git-square',
+            scale: [0.8, 1],
+            opacity: [0.5, 1],
+            delay: anime.stagger(10, {grid: [52, 7], from: 'center'}),
+            loop: true,
+            direction: 'alternate',
+            easing: 'easeInOutQuad',
+            duration: 1500
+        });
+    }
+
+    // 11. Hardware Blueprint SVG Animation
+    const blueprintPaths = document.querySelectorAll('.blueprint-path');
+    if (blueprintPaths.length > 0) {
+        anime({
+            targets: '.blueprint-path',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutSine',
+            duration: 3000,
+            delay: function(el, i) { return i * 500 },
+            direction: 'alternate',
+            loop: true
+        });
+
+        anime({
+            targets: '.blueprint-node',
+            r: [4, 8],
+            opacity: [0.5, 1],
+            easing: 'easeInOutSine',
+            duration: 1000,
+            direction: 'alternate',
+            loop: true,
+            delay: anime.stagger(200)
+        });
+    }
+
+    // 12. Global Tooltip Logic
+    const tooltip = document.getElementById('globalTooltip');
+    const tooltipText = tooltip.querySelector('.tooltip-text');
+    const skillTags = document.querySelectorAll('.skill-tag');
+
+    skillTags.forEach(tag => {
+        tag.addEventListener('mouseenter', (e) => {
+            const tipData = tag.getAttribute('data-tooltip');
+            if(tipData) {
+                tooltipText.innerText = tipData;
+                tooltip.style.opacity = 1;
+            }
+        });
+        
+        tag.addEventListener('mousemove', (e) => {
+            tooltip.style.left = e.clientX + 'px';
+            tooltip.style.top = e.clientY - 20 + 'px';
+        });
+
+        tag.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = 0;
+        });
+    });
 });

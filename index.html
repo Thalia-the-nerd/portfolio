@@ -61,6 +61,17 @@
         </section>
 
 
+        <!-- Github Activity Graph -->
+        <section class="activity-section">
+            <div class="section-container">
+                <div class="activity-header">
+                    <h2 class="activity-title">System Activity</h2>
+                    <span class="activity-status">1,024 commits this year</span>
+                </div>
+                <div class="git-grid" id="gitGrid"></div>
+            </div>
+        </section>
+
         <!-- About Section -->
         <section id="about" class="about-section">
             <div class="section-container">
@@ -95,13 +106,13 @@
                             <h3 class="category-title">Software & Systems</h3>
                         </div>
                         <div class="skills-tags">
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Arch Linux</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">GCP</span>
-                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Optimized real-time PID control loops for FIRST robotics.">C++</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Built robust autonomous logic controllers.">Java</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Developed the primary curriculum for Girls Coding Club.">Python</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Daily driver; deep low-level system configuration.">Arch Linux</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Architected 95+ containers for custom homelab infrastructure.">Docker</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Deployed scalable cloud computing resources.">GCP</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Designed API microservices for telemetry data.">REST APIs</span>
                         </div>
                     </div>
                     
@@ -111,11 +122,11 @@
                             <h3 class="category-title">Hardware & Engineering</h3>
                         </div>
                         <div class="skills-tags">
-                            <span class="skill-tag">3D CAD</span>
-                            <span class="skill-tag">Hardware Wiring</span>
-                            <span class="skill-tag">Arduino</span>
-                            <span class="skill-tag">Raspberry Pi</span>
-                            <span class="skill-tag">TVC Systems</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Designed 1/7 and 1/12 scale aerospace models.">3D CAD</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Complex turret integration and power distribution.">Hardware Wiring</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Built custom flight controllers and telemetry rigs.">Arduino</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Local DNS, proxies, and automation servers.">Raspberry Pi</span>
+                            <span class="skill-tag magnetic-card" data-tooltip="Currently architecting active rocket landing logic.">TVC Systems</span>
                         </div>
                     </div>
                 </div>
@@ -231,6 +242,49 @@
             </div>
         </section>
 
+        <!-- Hardware Blueprint Section -->
+        <section id="hardware" class="hardware-section">
+            <div class="section-container">
+                <h2 class="section-title">05. Hardware Schematics</h2>
+                <div class="blueprint-container glass-panel">
+                    <svg class="blueprint-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                        <path class="blueprint-path" d="M100,200 L300,200 L350,100 L450,100 L500,200 L700,200" fill="none" stroke="var(--accent-color)" stroke-width="2" />
+                        <path class="blueprint-path" d="M300,200 L300,300 L500,300 L500,200" fill="none" stroke="var(--accent-color)" stroke-width="2" />
+                        <circle class="blueprint-node" cx="350" cy="100" r="6" fill="var(--accent-secondary)" />
+                        <circle class="blueprint-node" cx="450" cy="100" r="6" fill="var(--accent-secondary)" />
+                        <circle class="blueprint-node" cx="300" cy="300" r="6" fill="var(--accent-secondary)" />
+                        <circle class="blueprint-node" cx="500" cy="300" r="6" fill="var(--accent-secondary)" />
+                        
+                        <text class="blueprint-text" x="400" y="80" text-anchor="middle">FLIGHT CONTROLLER ARRAY</text>
+                        <text class="blueprint-text" x="400" y="330" text-anchor="middle">THRUST VECTOR MOUNT</text>
+                        <text class="blueprint-text" x="200" y="190" text-anchor="middle">TELEMETRY RIG</text>
+                        <text class="blueprint-text" x="600" y="190" text-anchor="middle">PAYLOAD DEPLOYMENT</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Logs Section -->
+        <section id="logs" class="logs-section">
+            <div class="section-container">
+                <h2 class="section-title">06. Technical Logs</h2>
+                <div class="log-list glass-panel">
+                    <a href="#" class="log-item magnetic-card">
+                        <div class="log-meta"><span class="log-date">May 15, 2026</span> <span class="log-tag">Homelab</span></div>
+                        <h3 class="log-title">Architecting a 95+ Container Docker Swarm on Arch</h3>
+                    </a>
+                    <a href="#" class="log-item magnetic-card">
+                        <div class="log-meta"><span class="log-date">April 02, 2026</span> <span class="log-tag">Aerospace</span></div>
+                        <h3 class="log-title">PID Tuning for TVC Model Rockets</h3>
+                    </a>
+                    <a href="#" class="log-item magnetic-card">
+                        <div class="log-meta"><span class="log-date">February 18, 2026</span> <span class="log-tag">Robotics</span></div>
+                        <h3 class="log-title">Turret Tracking Algorithms in C++</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer / Contact -->
         <footer id="contact" class="footer-section">
             <div class="section-container">
@@ -271,6 +325,12 @@
             </div>
         </footer>
     </main>
+    
+    <!-- Hover Tooltip Container -->
+    <div id="globalTooltip" class="glass-panel global-tooltip">
+        <span class="tooltip-prompt">sys@query:~$</span>
+        <span class="tooltip-text"></span>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="script.js"></script>
