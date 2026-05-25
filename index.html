@@ -3,26 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thalia Webb | Software & Hardware Engineer</title>
-    <meta name="description" content="Portfolio of Thalia Webb, Software Developer, Robotics Lead, and Hardware Engineer based in Miami Beach.">
+    <title>Thalia Webb | Systems & Hardware Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Background Animation Canvas -->
-    <div class="bg-animation" id="bgAnimation"></div>
+    <!-- Dynamic CSS/JS Background -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grid" id="bgGrid"></div>
+    
+    <div class="cursor-glow" id="cursorGlow"></div>
 
     <main class="content-wrapper">
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <div class="hero-content">
-                <h1 class="hero-title">Thalia Webb</h1>
-                <p class="hero-subtitle">Software Developer | Robotics Lead | Hardware Engineer</p>
+                <div class="glitch-wrapper">
+                    <h1 class="hero-title" data-text="Thalia Webb">Thalia Webb</h1>
+                </div>
+                <div class="hero-roles">
+                    <span class="role-tag">Software Developer</span>
+                    <span class="role-divider">/</span>
+                    <span class="role-tag">Robotics Lead</span>
+                    <span class="role-divider">/</span>
+                    <span class="role-tag">Hardware Engineer</span>
+                </div>
+                
+                <div class="hero-abstract-shape">
+                    <!-- Pure CSS/SVG abstract design element to fill space -->
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                </div>
+
                 <div class="magnetic-btn-wrapper">
                     <a href="#projects" class="primary-btn magnetic-btn">
-                        <span class="btn-text">View Projects</span>
+                        <span class="btn-text">Explore Systems</span>
+                        <div class="btn-glow"></div>
                     </a>
                 </div>
             </div>
@@ -31,14 +49,19 @@
         <!-- About Section -->
         <section id="about" class="about-section">
             <div class="section-container">
-                <h2 class="section-title">About</h2>
                 <div class="about-grid">
+                    <div class="about-header">
+                        <h2 class="section-title">01. Architecture &<br>Hardware</h2>
+                        <p class="location-tag">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            Miami Beach, FL
+                        </p>
+                    </div>
                     <div class="about-text">
-                        <p class="location-tag"><span class="icon">📍</span> Miami Beach, FL</p>
                         <p class="bio">
                             Focused on the intersection of low-level programming, autonomous hardware, and systems architecture. 
                             Experienced in robotics, aerospace engineering projects, and maintaining complex server infrastructure. 
-                            Building projects with a focus on precision and performance.
+                            Building projects with an obsessive focus on precision, performance, and scalable design.
                         </p>
                     </div>
                 </div>
@@ -48,27 +71,37 @@
         <!-- Skills Section -->
         <section id="skills" class="skills-section">
             <div class="section-container">
-                <h2 class="section-title">Skills Matrix</h2>
-                <div class="skills-category">
-                    <h3 class="category-title">Software & Systems</h3>
-                    <div class="skills-tags" id="softwareTags">
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Linux (Arch)</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Google Cloud Platform</span>
-                        <span class="skill-tag">REST APIs</span>
+                <h2 class="section-title">02. Technical Stack</h2>
+                
+                <div class="skills-grid">
+                    <div class="skills-category glass-panel">
+                        <div class="category-header">
+                            <span class="category-icon">&lt;/&gt;</span>
+                            <h3 class="category-title">Software & Systems</h3>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Arch Linux</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">GCP</span>
+                            <span class="skill-tag">REST APIs</span>
+                        </div>
                     </div>
-                </div>
-                <div class="skills-category">
-                    <h3 class="category-title">Hardware & Engineering</h3>
-                    <div class="skills-tags" id="hardwareTags">
-                        <span class="skill-tag">3D Printing & CAD</span>
-                        <span class="skill-tag">Circuit/Hardware Wiring</span>
-                        <span class="skill-tag">Arduino</span>
-                        <span class="skill-tag">Raspberry Pi</span>
-                        <span class="skill-tag">TVC Systems</span>
+                    
+                    <div class="skills-category glass-panel">
+                        <div class="category-header">
+                            <span class="category-icon">⚙️</span>
+                            <h3 class="category-title">Hardware & Engineering</h3>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">3D CAD</span>
+                            <span class="skill-tag">Hardware Wiring</span>
+                            <span class="skill-tag">Arduino</span>
+                            <span class="skill-tag">Raspberry Pi</span>
+                            <span class="skill-tag">TVC Systems</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,47 +110,92 @@
         <!-- Projects Section -->
         <section id="projects" class="projects-section">
             <div class="section-container">
-                <h2 class="section-title">Projects</h2>
+                <h2 class="section-title">03. Selected Projects</h2>
                 <div class="projects-grid">
-                    <div class="project-card magnetic-card">
-                        <h3 class="project-title">FIRST Robotics</h3>
-                        <p class="project-role">Lead Programmer</p>
-                        <p class="project-desc">Developed and optimized robot code in C++ and Java. Managed complex hardware wiring for turrets and integrated advanced control systems.</p>
+                    <!-- Project 1 -->
+                    <div class="project-card magnetic-card glass-panel">
+                        <div class="project-card-inner">
+                            <div class="project-header">
+                                <span class="project-number">01</span>
+                                <h3 class="project-title">FIRST Robotics</h3>
+                            </div>
+                            <p class="project-role">Lead Programmer & Integrator</p>
+                            <p class="project-desc">Developed and optimized autonomous robot code in C++ and Java. Managed complex hardware wiring for turrets and integrated advanced PID control systems for precision movement.</p>
+                            <div class="project-tech">
+                                <span>C++</span><span>Java</span><span>Hardware</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-card magnetic-card">
-                        <h3 class="project-title">Aerospace & Flight Systems</h3>
-                        <p class="project-desc">Designed and engineered large-scale model aircraft. Developed custom flight controllers and currently architecting a Thrust Vector Control (TVC) model rocket with smart landing logic.</p>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card magnetic-card glass-panel">
+                        <div class="project-card-inner">
+                            <div class="project-header">
+                                <span class="project-number">02</span>
+                                <h3 class="project-title">Aerospace & Flight</h3>
+                            </div>
+                            <p class="project-role">Systems Architect</p>
+                            <p class="project-desc">Designed 1/7 and 1/12 scale model aircraft profiles. Developed custom flight controllers. Currently architecting a Thrust Vector Control (TVC) model rocket with smart landing logic.</p>
+                            <div class="project-tech">
+                                <span>CAD</span><span>Arduino</span><span>Physics</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-card magnetic-card">
-                        <h3 class="project-title">Advanced Infrastructure</h3>
-                        <p class="project-role">Homelab Architecture</p>
-                        <p class="project-desc">Architected and maintained a home server environment running 95+ Docker containers, handling internal network routing, reverse proxies, and continuous service deployment.</p>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card magnetic-card glass-panel">
+                        <div class="project-card-inner">
+                            <div class="project-header">
+                                <span class="project-number">03</span>
+                                <h3 class="project-title">Homelab Infrastructure</h3>
+                            </div>
+                            <p class="project-role">Network Admin</p>
+                            <p class="project-desc">Architected a home server environment running 95+ Docker containers. Handles complex internal network routing, reverse proxies, and continuous service deployment pipelines.</p>
+                            <div class="project-tech">
+                                <span>Docker</span><span>Linux</span><span>Networking</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-card magnetic-card">
-                        <h3 class="project-title">Technical Leadership</h3>
-                        <p class="project-role">President, Girls Coding Club</p>
-                        <p class="project-desc">Drafted administrative governance, managed club operations, and developed/taught a comprehensive Python curriculum.</p>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card magnetic-card glass-panel">
+                        <div class="project-card-inner">
+                            <div class="project-header">
+                                <span class="project-number">04</span>
+                                <h3 class="project-title">Technical Leadership</h3>
+                            </div>
+                            <p class="project-role">President, Girls Coding Club</p>
+                            <p class="project-desc">Drafted administrative governance, managed club operations, and developed/taught a comprehensive Python curriculum to introduce students to software engineering.</p>
+                            <div class="project-tech">
+                                <span>Python</span><span>Leadership</span><span>Education</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Footer / Contact -->
+        <!-- Footer -->
         <footer id="contact" class="footer-section">
             <div class="section-container">
-                <div class="footer-content">
-                    <h2 class="section-title">Let's Connect</h2>
+                <div class="footer-glass glass-panel">
+                    <h2 class="footer-title">Initialize Connection</h2>
                     <div class="social-links">
-                        <a href="mailto:thaliathenerder@gmail.com" class="social-icon">Email</a>
-                        <a href="https://github.com" target="_blank" class="social-icon">GitHub</a>
+                        <a href="mailto:thaliathenerder@gmail.com" class="magnetic-btn-wrapper">
+                            <span class="social-icon magnetic-btn">Email</span>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="magnetic-btn-wrapper">
+                            <span class="social-icon magnetic-btn">GitHub</span>
+                        </a>
                     </div>
-                    <p class="copyright">&copy; 2026 Thalia Webb. All rights reserved.</p>
+                    <div class="terminal-line">
+                        <span class="prompt">thalia@system:~$</span> <span class="typing">exit</span>
+                    </div>
                 </div>
             </div>
         </footer>
     </main>
 
-    <!-- Anime.js from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="script.js"></script>
 </body>

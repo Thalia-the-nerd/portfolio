@@ -1,117 +1,115 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Background Grid Animation
-    const bgContainer = document.getElementById('bgAnimation');
-    const cols = Math.floor(window.innerWidth / 50);
-    const rows = Math.floor(window.innerHeight / 50);
-    const totalCells = cols * rows;
-
-    // Create cells
-    for (let i = 0; i < totalCells; i++) {
-        const cell = document.createElement('div');
-        cell.classList.add('bg-cell');
-        bgContainer.appendChild(cell);
-    }
-
-    anime({
-        targets: '.bg-cell',
-        scale: [
-            {value: .1, easing: 'easeOutSine', duration: 500},
-            {value: 1, easing: 'easeInOutQuad', duration: 1200}
-        ],
-        opacity: [
-            {value: 0, easing: 'easeOutSine', duration: 500},
-            {value: 0.04, easing: 'easeInOutQuad', duration: 1200}
-        ],
-        delay: anime.stagger(200, {grid: [cols, rows], from: 'center'}),
-        loop: true,
-        direction: 'alternate',
-        easing: 'easeInOutSine'
+    
+    // 1. Cursor Glow Tracking
+    const cursorGlow = document.getElementById('cursorGlow');
+    
+    document.addEventListener('mousemove', (e) => {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top = e.clientY + 'px';
     });
 
-    // 2. Initial Page Load Animations (Hero Section)
-    anime.timeline({ easing: 'easeOutExpo' })
-        .add({
-            targets: '.hero-title',
-            translateY: [50, 0],
-            opacity: [0, 1],
-            duration: 1200,
-            delay: 200
-        })
-        .add({
-            targets: '.hero-subtitle',
-            translateY: [30, 0],
-            opacity: [0, 1],
-            duration: 1000
-        }, '-=800')
-        .add({
-            targets: '.magnetic-btn-wrapper',
-            translateY: [20, 0],
-            opacity: [0, 1],
-            duration: 800
-        }, '-=600');
+    // 2. 3D Background Grid Animation (Perspective scrolling effect)
+    const bgGrid = document.getElementById('bgGrid');
+    
+    anime({
+        targets: bgGrid,
+        backgroundPosition: ['0px 0px', '0px 60px'],
+        duration: 2000,
+        easing: 'linear',
+        loop: true
+    });
 
-    // 3. Scroll Reveal Logic via Intersection Observer
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+    // 3. Initial Load Sequence (Staggered and dramatic)
+    const tl = anime.timeline({ easing: 'easeOutExpo' });
+    
+    tl.add({
+        targets: '.hero-title',
+        translateY: [100, 0],
+        opacity: [0, 1],
+        duration: 1500,
+        delay: 200
+    })
+    .add({
+        targets: '.role-tag',
+        translateX: [-30, 0],
+        opacity: [0, 1],
+        duration: 1000,
+        delay: anime.stagger(150)
+    }, '-=1000')
+    .add({
+        targets: '.role-divider',
+        opacity: [0, 1],
+        duration: 500,
+        delay: anime.stagger(150)
+    }, '-=800')
+    .add({
+        targets: '.hero-abstract-shape',
+        scale: [0.8, 1],
+        opacity: [0, 0.6],
+        duration: 2000
+    }, '-=1200')
+    .add({
+        targets: '.primary-btn',
+        translateY: [20, 0],
+        opacity: [0, 1],
+        duration: 800
+    }, '-=1000');
 
-    const animateOnScroll = (entries, observer) => {
+    // 4. Scroll Reveals via Intersection Observer
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+    
+    const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const target = entry.target;
-
-                // Determine what to animate based on classes or tags
-                if (target.classList.contains('about-text')) {
+                const el = entry.target;
+                
+                if (el.classList.contains('section-title')) {
                     anime({
-                        targets: target,
+                        targets: el,
                         translateY: [50, 0],
                         opacity: [0, 1],
-                        duration: 1000,
+                        duration: 1200,
                         easing: 'easeOutExpo'
                     });
-                } else if (target.classList.contains('skills-category')) {
-                    const tags = target.querySelectorAll('.skill-tag');
+                } else if (el.classList.contains('glass-panel')) {
                     anime({
-                        targets: tags,
-                        translateY: [20, 0],
+                        targets: el,
+                        translateY: [60, 0],
                         opacity: [0, 1],
-                        duration: 800,
-                        delay: anime.stagger(100),
-                        easing: 'easeOutElastic(1, .8)'
+                        rotateX: [10, 0],
+                        duration: 1200,
+                        easing: 'easeOutElastic(1, 0.8)',
+                        delay: el.dataset.delay || 0
                     });
-                } else if (target.classList.contains('projects-grid')) {
-                    const cards = target.querySelectorAll('.project-card');
+                } else if (el.classList.contains('bio')) {
                     anime({
-                        targets: cards,
-                        translateY: [40, 0],
+                        targets: el,
+                        translateY: [30, 0],
                         opacity: [0, 1],
-                        duration: 1000,
-                        delay: anime.stagger(150),
+                        duration: 1200,
                         easing: 'easeOutExpo'
                     });
                 }
-
-                // Unobserve after animating
-                observer.unobserve(target);
+                
+                observer.unobserve(el);
             }
         });
     };
-
-    const observer = new IntersectionObserver(animateOnScroll, observerOptions);
-
-    // Initial hidden state for scroll elements
-    document.querySelectorAll('.about-text, .skills-category .skill-tag, .project-card').forEach(el => {
+    
+    const observer = new IntersectionObserver(revealCallback, observerOptions);
+    
+    // Setup initial state for scroll elements
+    const elementsToReveal = document.querySelectorAll('.section-title, .glass-panel, .bio');
+    elementsToReveal.forEach((el, index) => {
         el.style.opacity = 0;
-    });
-
-    // Observe containers
-    document.querySelectorAll('.about-text, .skills-category, .projects-grid').forEach(el => {
+        // Stagger grid items
+        if(el.classList.contains('project-card') || el.classList.contains('skills-category')) {
+            el.dataset.delay = (index % 2) * 200; 
+        }
         observer.observe(el);
     });
 
-    // 4. Magnetic Hover Effects
+    // 5. Magnetic Physics Hover Effect
     const magneticElements = document.querySelectorAll('.magnetic-btn-wrapper, .magnetic-card');
 
     magneticElements.forEach(elem => {
@@ -123,20 +121,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const isCard = elem.classList.contains('magnetic-card');
             const targetEl = isCard ? elem : elem.querySelector('.magnetic-btn');
             
-            const intensity = isCard ? 0.05 : 0.3; // Less intense for big cards
-
+            // Cards get a 3D tilt, buttons get translation
+            const intensity = isCard ? 0.05 : 0.4;
+            
             anime({
                 targets: targetEl,
-                translateX: x * intensity,
-                translateY: y * intensity,
-                scale: isCard ? 1.02 : 1,
+                translateX: isCard ? 0 : x * intensity,
+                translateY: isCard ? 0 : y * intensity,
                 rotateX: isCard ? (-y * intensity * 0.5) : 0,
                 rotateY: isCard ? (x * intensity * 0.5) : 0,
-                boxShadow: isCard ? `
-                    ${-x * intensity}px ${-y * intensity}px 20px rgba(0,229,255,0.1),
-                    0 10px 30px rgba(0,0,0,0.5)
-                ` : 'none',
-                duration: 50,
+                scale: isCard ? 1.02 : 1,
+                duration: 100,
                 easing: 'easeOutQuad'
             });
         });
@@ -149,23 +144,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 targets: targetEl,
                 translateX: 0,
                 translateY: 0,
-                scale: 1,
                 rotateX: 0,
                 rotateY: 0,
-                boxShadow: isCard ? '0 0 0 rgba(0,0,0,0)' : 'none',
-                duration: 1000,
+                scale: 1,
+                duration: 1200,
                 easing: 'easeOutElastic(1, .5)'
             });
         });
     });
-
-    // 5. Social Icons Pulse Animation
+    
+    // 6. Terminal typing loop animation at bottom
     anime({
-        targets: '.social-icon',
-        translateY: [0, -5, 0],
-        duration: 2000,
-        delay: anime.stagger(200),
+        targets: '.typing',
+        opacity: [0, 1],
+        duration: 800,
+        direction: 'alternate',
         loop: true,
-        easing: 'easeInOutSine'
+        easing: 'steps(2)'
     });
 });
