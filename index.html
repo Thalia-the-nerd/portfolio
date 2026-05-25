@@ -60,6 +60,29 @@
             </div>
         </section>
 
+        <!-- Terminal Section -->
+        <section id="terminal" class="terminal-section">
+            <div class="section-container">
+                <div class="terminal-window glass-panel">
+                    <div class="terminal-header">
+                        <div class="term-btns">
+                            <span class="term-btn close"></span>
+                            <span class="term-btn min"></span>
+                            <span class="term-btn max"></span>
+                        </div>
+                        <div class="term-title">thalia@arch-linux:~</div>
+                    </div>
+                    <div class="terminal-body" id="terminalBody">
+                        <div class="term-line output">Welcome to ThaliaOS v1.0.4. Type 'help' to see available commands.</div>
+                        <div class="term-input-line">
+                            <span class="prompt">thalia@arch-linux:~$</span>
+                            <input type="text" id="terminalInput" class="term-input" autocomplete="off" spellcheck="false" autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- About Section -->
         <section id="about" class="about-section">
             <div class="section-container">
@@ -121,10 +144,51 @@
             </div>
         </section>
 
+        <!-- Experience Timeline Section -->
+        <section id="experience" class="timeline-section">
+            <div class="section-container">
+                <h2 class="section-title">03. Journey</h2>
+                <div class="timeline-wrapper">
+                    <!-- SVG Line -->
+                    <svg class="timeline-line-svg" width="4" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="2" y1="0" x2="2" y2="100%" stroke="rgba(255,255,255,0.1)" stroke-width="4" />
+                        <line class="timeline-progress" x1="2" y1="0" x2="2" y2="100%" stroke="var(--accent-color)" stroke-width="4" stroke-dasharray="2000" stroke-dashoffset="2000" />
+                    </svg>
+
+                    <div class="timeline-node glass-panel">
+                        <div class="node-dot"></div>
+                        <div class="node-content">
+                            <h3 class="node-title">President, Girls Coding Club</h3>
+                            <span class="node-date">2025 - Present</span>
+                            <p class="node-desc">Drafting administrative governance, managing operations, and teaching a full Python curriculum.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-node glass-panel">
+                        <div class="node-dot"></div>
+                        <div class="node-content">
+                            <h3 class="node-title">Systems Architect (Homelab)</h3>
+                            <span class="node-date">2024 - Present</span>
+                            <p class="node-desc">Maintaining an advanced server cluster running 95+ Docker containers with complex network routing.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-node glass-panel">
+                        <div class="node-dot"></div>
+                        <div class="node-content">
+                            <h3 class="node-title">Lead Programmer, FIRST Robotics</h3>
+                            <span class="node-date">2023 - 2025</span>
+                            <p class="node-desc">Architecting autonomous C++/Java code and integrating complex hardware systems like turrets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Section -->
         <section id="projects" class="projects-section">
             <div class="section-container">
-                <h2 class="section-title">03. Selected Projects</h2>
+                <h2 class="section-title">04. Selected Projects</h2>
                 <div class="projects-grid">
                     <!-- Project 1 -->
                     <div class="project-card magnetic-card glass-panel">
@@ -189,12 +253,32 @@
             </div>
         </section>
 
-        <!-- Footer -->
+        <!-- Footer / Contact -->
         <footer id="contact" class="footer-section">
             <div class="section-container">
                 <div class="footer-glass glass-panel">
-                    <h2 class="footer-title">Initialize Connection</h2>
-                    <div class="social-links">
+                    <h2 class="footer-title">05. Initialize Connection</h2>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="input-group">
+                            <input type="text" id="name" required class="form-input">
+                            <label for="name" class="form-label">Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" required class="form-input">
+                            <label for="email" class="form-label">Email</label>
+                        </div>
+                        <div class="input-group">
+                            <textarea id="message" required class="form-input" rows="4"></textarea>
+                            <label for="message" class="form-label">Message</label>
+                        </div>
+                        <button type="submit" class="primary-btn submit-btn magnetic-btn">
+                            <span class="btn-text">Transmit Signal</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </form>
+
+                    <div class="social-links" style="margin-top: 3rem;">
                         <a href="mailto:thaliathenerder@gmail.com" class="magnetic-btn-wrapper">
                             <span class="social-icon magnetic-btn">Email</span>
                         </a>

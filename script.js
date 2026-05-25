@@ -246,4 +246,101 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: true,
         easing: 'steps(2)'
     });
+
+    // 7. Interactive Terminal Logic
+    const termInput = document.getElementById('terminalInput');
+    const termBody = document.getElementById('terminalBody');
+
+    if (termInput) {
+        termInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const cmd = this.value.trim().toLowerCase();
+                this.value = '';
+                
+                // Echo command
+                const echoLine = document.createElement('div');
+                echoLine.className = 'term-line';
+                echoLine.innerHTML = `<span class="prompt">thalia@arch-linux:~$</span> ${cmd}`;
+                termBody.insertBefore(echoLine, termInput.parentElement);
+
+                // Process command
+                let output = '';
+                if (cmd === 'help') {
+                    output = 'Available commands: whoami, skills, clear, contact, sudo';
+                } else if (cmd === 'whoami') {
+                    output = 'Thalia Webb - Systems & Hardware Engineer.<br>Specializing in robotics, autonomous systems, and low-level Linux infrastructure.';
+                } else if (cmd === 'skills') {
+                    output = 'Loading skills module...<br>[+] C++ [+] Java [+] Python<br>[+] Arch Linux [+] Docker [+] GCP<br>[+] Hardware Wiring [+] CAD';
+                } else if (cmd === 'clear') {
+                    const lines = termBody.querySelectorAll('.term-line.output, .term-line:not(:last-child)');
+                    lines.forEach(l => l.remove());
+                } else if (cmd === 'contact') {
+                    output = 'Initializing secure channel...<br>Email: thaliathenerder@gmail.com';
+                } else if (cmd === 'sudo') {
+                    output = 'thalia is not in the sudoers file. This incident will be reported.';
+                } else if (cmd !== '') {
+                    output = `bash: ${cmd}: command not found`;
+                }
+
+                if (output !== '') {
+                    const outLine = document.createElement('div');
+                    outLine.className = 'term-line output';
+                    outLine.innerHTML = output;
+                    termBody.insertBefore(outLine, termInput.parentElement);
+                }
+
+                termBody.scrollTop = termBody.scrollHeight;
+            }
+        });
+
+        // Keep focus on terminal when clicking inside it
+        termBody.addEventListener('click', () => {
+            termInput.focus();
+        });
+    }
+
+    // 8. Animated Experience Timeline (Scroll drawing)
+    const timelineProgress = document.querySelector('.timeline-progress');
+    if (timelineProgress) {
+        // Find total length of timeline section
+        const timelineSection = document.querySelector('.timeline-section');
+        
+        window.addEventListener('scroll', () => {
+            const rect = timelineSection.getBoundingClientRect();
+            const winH = window.innerHeight;
+            // Calculate scroll percentage through the section
+            let scrollPerc = (winH - rect.top) / (rect.height + winH);
+            if (scrollPerc < 0) scrollPerc = 0;
+            if (scrollPerc > 1) scrollPerc = 1;
+            
+            // stroke-dashoffset goes from 2000 to 0
+            const offset = 2000 - (scrollPerc * 2000);
+            timelineProgress.style.strokeDashoffset = offset;
+        });
+    }
+
+    // 9. Contact Form Submit Animation
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector('.submit-btn');
+            const btnText = btn.querySelector('.btn-text');
+            
+            // Simple mock submit animation
+            btnText.innerText = "Transmitting...";
+            anime({
+                targets: btn,
+                scale: [1, 0.95, 1],
+                duration: 2000,
+                easing: 'easeInOutQuad',
+                complete: function() {
+                    btnText.innerText = "Signal Received ✓";
+                    btn.style.background = "var(--accent-color)";
+                    btn.style.color = "#000";
+                    contactForm.reset();
+                }
+            });
+        });
+    }
 });
